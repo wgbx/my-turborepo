@@ -6,10 +6,6 @@ export async function middleware() {
   const cache = new cacheHandler();
 
   const cacheSubdomain = await cache.get("subdomain");
-
-  if (cacheSubdomain) {
-    console.log(cacheSubdomain.value);
-  }
   if (!cacheSubdomain) {
     const data = await fetch(
       "https://release.katana-api.1m.app/subdomain/user",
